@@ -112,7 +112,7 @@ export default function UpdateProduct() {
 
   return (
     <main className='min-h-screen col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Product", "Edit"]} button={{ text: "Back To View", name: "Update Product", url: "/admin/product" }} />
+      <PageHeader breadcurms={["Dashboard", "Product", "Edit"]} name={"Update Product"} button={{ text: "Back To View", url: "/admin/product" }} />
       <div className="p-5 bg-white shadow-lg rounded-lg">
         <form onSubmit={SubmitHandler} className='w-full'>
           <div className='grid grid-cols-2 gap-4'>

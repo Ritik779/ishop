@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { FaAngleRight, FaHome } from 'react-icons/fa'
 
-export default function PageHeader({ breadcurms, button, trash }) {
+export default function PageHeader({ breadcurms, button, trash, name }) {
     return (
         <>
             <div className='inline-flex gap-2 mb-4 items-center'>
@@ -25,7 +25,7 @@ export default function PageHeader({ breadcurms, button, trash }) {
 
             <div className='flex justify-between items-center mb-4'>
                 <h1 className='text-2xl font-semibold'>
-                    {button.name}
+                    {name}
                 </h1>
                 <div className='flex justify-end gap-2'>
                     {
@@ -35,9 +35,13 @@ export default function PageHeader({ breadcurms, button, trash }) {
                             <button className='p-2 bg-blue-500 rounded text-white'>Trash-Bin</button>
                         </Link>
                     }
-                    <Link href={`${button.url}`}>
-                        <button className='p-2 bg-blue-500 rounded text-white'>{button.text}</button>
-                    </Link>
+                    {
+                        button?.url != undefined
+                        &&
+                        <Link href={`${button.url}`}>
+                            <button className='p-2 bg-blue-500 rounded text-white'>{button.text}</button>
+                        </Link>
+                    }
                 </div>
             </div>
         </>

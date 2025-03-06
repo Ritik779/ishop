@@ -1,6 +1,7 @@
 const express = require('express');
 
 const CategoryController = require('../controllers/category.controller');
+const adminAuth = require('../middleware/adminAuth');
 
 
 const categoryRouter = express.Router();
@@ -17,7 +18,7 @@ categoryRouter.get(
 )
 
 categoryRouter.post(
-    "/create", CategoryController.create
+    "/create", adminAuth,CategoryController.create
 )
 
 categoryRouter.patch(

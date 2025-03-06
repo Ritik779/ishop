@@ -106,7 +106,7 @@ export default function AddProduct() {
 
   return (
     <main className='min-h-screen col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Product", "Add"]} button={{ text: "Back To View", name: "Add New Product", url: "/admin/product" }} />
+      <PageHeader breadcurms={["Dashboard", "Product", "Add"]} name={"Add New Product"} button={{ text: "Back To View", url: "/admin/product" }} />
       <div className="p-5 bg-white shadow-lg rounded-ee-lg">
         <form onSubmit={SubmitHandler} className='w-full'>
           <div className='grid grid-cols-2 gap-4'>

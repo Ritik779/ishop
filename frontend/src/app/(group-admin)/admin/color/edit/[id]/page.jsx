@@ -75,7 +75,7 @@ export default function EditColor() {
 
   return (
     <main className='min-h-screen col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "color", "Edit"]} button={{ text: "Back To View", name: "Edit Color", url: "/admin/color" }} />
+      <PageHeader breadcurms={["Dashboard", "color", "Edit"]} name={"Edit Color"} button={{ text: "Back To View", url: "/admin/color" }} />
       <div className="p-5 bg-white shadow-lg rounded-ee-lg">
         <form onSubmit={SubmitHandler} className='w-full'>
           <div className='grid grid-cols-7 gap-4'>

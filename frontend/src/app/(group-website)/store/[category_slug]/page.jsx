@@ -5,7 +5,6 @@ import ProductCard from '@/components/website/ProductCard';
 import { ProductData } from '@/library/api-calls';
 import ItemsHeader from '@/components/website/ItemsHeader';
 
-
 export default async function CategoryProduct({ params, searchParams }) {
     
     let range = null;
@@ -15,12 +14,10 @@ export default async function CategoryProduct({ params, searchParams }) {
             max: Number(searchParams.max)
         }
     }
-    let color = null;
-    if (searchParams.color != null) {
-        color = searchParams.color
-    }
+    let color = searchParams.color || null;
     let category = params.category_slug
     const products = await ProductData(category, range, color)
+
 
     return (
         <>
@@ -46,7 +43,7 @@ export default async function CategoryProduct({ params, searchParams }) {
                             ?
                             products.map(
                                 (prod) => {
-                                    return <ProductCard key={prod._id} {...prod} />
+                                    return <ProductCard key={prod._id} {...prod}/>
                                 }
                             )
                             :

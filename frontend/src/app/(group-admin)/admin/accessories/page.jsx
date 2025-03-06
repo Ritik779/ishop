@@ -14,7 +14,7 @@ export default async function Accessory() {
 
   return (
     <main className='col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Accessories"]} button={{ text: "ADD", name: "Accessories", url: "/admin/accessories/add" }} trash={{ link: "/admin/accessories/trash" }} />
+      <PageHeader breadcurms={["Dashboard", "Accessories"]} name={"Accessories"} button={{ text: "ADD", url: "/admin/accessories/add" }} trash={{ link: "/admin/accessories/trash" }} />
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400 text-left">
           <thead className="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

@@ -18,13 +18,18 @@ const UserSchema = new Schema(
             type: String,
             required: true
         },
-        address: {
+        address: [{
+            name: String,
+            flat: String,
+            landmark: String,
             street: String,
-            city: String,
+            area: String,
+            district: String,
             state: String,
-            zip: String,
-            country: String
-        },
+            pincode: String,
+            contact: String,
+            isdefault: { type: Boolean, default: false }
+        }],
         phone: {
             type: String,
             required: true
@@ -32,6 +37,14 @@ const UserSchema = new Schema(
         isAdmin: {
             type: Boolean,
             default: false
+        },
+        status: {
+            type: Boolean,
+            default: true
+        },
+        deletedAt: {
+            type: Date,
+            default: null
         }
     },
     {

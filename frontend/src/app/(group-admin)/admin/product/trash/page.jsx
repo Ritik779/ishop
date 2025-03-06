@@ -13,7 +13,7 @@ export default async function TrashProducts() {
 
   return (
     <main className='col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Product", "trash"]} button={{ text: "Back To View", name: "Trash-Bin", url: "/admin/product" }} />
+      <PageHeader breadcurms={["Dashboard", "Product", "trash"]} name={"Trash-Bin"} button={{ text: "Back To View", url: "/admin/product" }} />
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400 text-left">
           <thead className="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

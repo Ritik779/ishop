@@ -89,7 +89,7 @@ export default function AddAccessories() {
 
   return (
     <main className='min-h-screen col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Accessories", "Add"]} button={{ text: "Back To View", name: "Add New Accessories", url: "/admin/accessories" }} />
+      <PageHeader breadcurms={["Dashboard", "Accessories", "Add"]} name={"Add New Accessories"} button={{ text: "Back To View", url: "/admin/accessories" }} />
       <div className="p-5 bg-white shadow-lg rounded-ee-lg">
         <form onSubmit={SubmitHandler} className='w-full'>
           <div className='grid grid-cols-2 gap-4'>

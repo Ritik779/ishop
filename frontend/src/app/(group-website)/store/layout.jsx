@@ -1,6 +1,6 @@
 import ColorSelect from '@/components/website/ColorSelect'
 import RangeSelect from '@/components/website/RangeSelect'
-import { AccessoryData, CategoryData, ColorData } from '@/library/api-calls'
+import { CategoryData, ColorData } from '@/library/api-calls'
 import Link from 'next/link'
 import React from 'react'
 import { FaFilter } from 'react-icons/fa'

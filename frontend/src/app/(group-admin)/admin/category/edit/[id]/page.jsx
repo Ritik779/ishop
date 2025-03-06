@@ -73,7 +73,7 @@ export default function EditCategory() {
 
   return (
     <main className='min-h-screen col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Categories", "Edit"]} button={{ text: "Back To View", name: "Edit Category", url: "/admin/category" }} />
+      <PageHeader breadcurms={["Dashboard", "Categories", "Edit"]} name={"Edit Category"} button={{ text: "Back To View", url: "/admin/category" }} />
       <div className="p-5 bg-white shadow-lg rounded-ee-lg">
         <form onSubmit={SubmitHandler} className='w-full'>
           <div className='grid grid-cols-2 gap-4'>

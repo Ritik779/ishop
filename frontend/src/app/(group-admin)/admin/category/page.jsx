@@ -13,7 +13,7 @@ export default async function Category() {
 
   return (
     <main className='col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Categories"]} button={{ text: "ADD", name: "Categories", url: "/admin/category/add" }} trash={{ link: "/admin/category/trash" }} />
+      <PageHeader breadcurms={["Dashboard", "Categories"]} name={"Categories"} button={{ text: "ADD", url: "/admin/category/add" }} trash={{ link: "/admin/category/trash" }} />
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400 text-left">
           <thead className="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

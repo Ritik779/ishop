@@ -13,7 +13,7 @@ export default async function Color() {
 
   return (
     <main className='col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Color"]} button={{ text: "ADD", name: "Color", url: "/admin/color/add" }} trash={{ link: "/admin/color/trash" }} />
+      <PageHeader breadcurms={["Dashboard", "Color"]} name={"Color"} button={{ text: "ADD", url: "/admin/color/add" }} trash={{ link: "/admin/color/trash" }} />
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400 text-left">
           <thead className="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

@@ -1,5 +1,7 @@
 import { axiosInstance } from "./helper"
 
+// Category Code
+
 const CategoryData = async () => {
     return await axiosInstance.get("/category")
         .then(
@@ -38,6 +40,9 @@ const CategoryTrash = async () => {
             }
         )
 }
+
+// Color code
+
 const ColorData = async () => {
     return await axiosInstance.get("/color")
         .then(
@@ -76,7 +81,10 @@ const ColorTrash = async () => {
             }
         )
 }
-const ProductData = async (catagory = null, range = null, color = null) => {
+
+// Product code
+
+const ProductData = async (catagory = null, range = null, color = null, page = null, limit = null, sortByName = null, search = null) => {
     const searchQuery = new URLSearchParams()
     if (catagory != null) {
         searchQuery.append("category", catagory)
@@ -89,6 +97,18 @@ const ProductData = async (catagory = null, range = null, color = null) => {
     }
     if (color != null) {
         searchQuery.append("color", color)
+    }
+    if (page != null) {
+        searchQuery.append("page", page)
+    }
+    if (limit != null) {
+        searchQuery.append("limit", limit)
+    }
+    if (sortByName != null) {
+        searchQuery.append("sortByName", sortByName);
+    }
+    if (search != null) {
+        searchQuery.append("search", search)
     }
     return await axiosInstance.get(`/product?${searchQuery.toString()}`)
         .then(
@@ -127,18 +147,8 @@ const ProductTrash = async () => {
             }
         )
 }
-// const getProductByCategory = (catagory_slug) => {
-//     return axiosInstance.get(`/product/category/${catagory_slug}`)
-//         .then(
-//             (response) => {
-//                 return response.data.products
-//             }
-//         ).catch(
-//             (error) => {
-//                 return [];
-//             }
-//         )
-// }
+
+// accessories code
 
 const AccessoryData = async () => {
     return await axiosInstance.get("/accessories")
@@ -179,4 +189,89 @@ const AccessoryTrash = async () => {
         )
 }
 
-export { CategoryData, CategoryTrash, GetCategoryByID, ColorTrash, GetColorByID, ColorData, ProductData, getProductByID, ProductTrash, AccessoryData, getAccessoryByID, AccessoryTrash }
+// user code
+
+const getUserData = async () => {
+    return await axiosInstance.get("/user")
+        .then(
+            (response) => {
+                return response.data.users
+            }
+        ).catch(
+            (error) => {
+                return []
+            }
+        )
+}
+
+// const GetUserId = async (id) => {
+//     return await axiosInstance.get(`/user/${id}`)
+//         .then(
+//             (response) => {
+//                 return response.data.accessory
+//             }
+//         ).catch(
+//             (error) => {
+//                 return []
+//             }
+//         )
+// }
+
+// const UserTrash = async () => {
+//     return await axiosInstance.get("/user/get-trashed")
+//         .then(
+//             (response) => {
+//                 return response.data.accessories
+//             }
+//         ).catch(
+//             (error) => {
+//                 return []
+//             }
+//         )
+// }
+
+
+// admin code
+
+const getAdminData = async () => {
+    return await axiosInstance.get("/admin")
+        .then(
+            (response) => {
+                return response.data.admins
+            }
+        ).catch(
+            (error) => {
+                return []
+            }
+        )
+}
+
+
+const AdminTrash = async () => {
+    return await axiosInstance.get("/admin/getTrashed")
+        .then(
+            (response) => {
+                return response.data.admins
+            }
+        ).catch(
+            (error) => {
+                return []
+            }
+        )
+}
+
+const getAllOrders = async () => {
+    return await axiosInstance.get("/order")
+        .then(
+            (response) => {
+                return response.data.orders
+            }
+        ).catch(
+            (error) => {
+                return []
+            }
+        )
+}
+
+
+export { CategoryData, CategoryTrash, GetCategoryByID, ColorTrash, GetColorByID, ColorData, ProductData, getProductByID, ProductTrash, AccessoryData, getAccessoryByID, AccessoryTrash, getUserData, getAdminData, AdminTrash , getAllOrders}

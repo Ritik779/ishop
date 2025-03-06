@@ -15,7 +15,7 @@ export default async function Product() {
 
   return (
     <main className='col-span-4 rounded-md bg-white p-6'>
-      <PageHeader breadcurms={["Dashboard", "Product"]} button={{ text: "ADD", name: "Products", url: "/admin/product/add" }} trash={{ link: "/admin/product/trash" }} />
+      <PageHeader breadcurms={["Dashboard", "Product"]} name={"Products"} button={{ text: "ADD", url: "/admin/product/add" }} trash={{ link: "/admin/product/trash" }} />
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400 text-left">
           <thead className="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

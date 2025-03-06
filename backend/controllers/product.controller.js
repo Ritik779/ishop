@@ -65,7 +65,6 @@ const ProductController = {
             )
         }
     },
-    // async productCategory(req, res) {
     //     try {
     //         const category_slug = req.params.slug;
     //         if (!category_slug) return res.send({ message: "Wrong Category Name" })
@@ -114,9 +113,21 @@ const ProductController = {
             }
         }
         if (query.color) {
-            const colors = await ColorModal.find({slug:query.color?.split(",")})
+            const colors = await ColorModal.find({ slug: query.color?.split(",") })
             const colorID = colors.map(col => col._id)
             filterQuery['color'] = { $in: colorID }
+        }
+        let skip = 0;
+        let Limit = query.limit ? Number(query.limit) : null; // If limit is not provided, keep it as null
+        if (query.page && Limit) {
+            skip = Limit * (query.page - 1);
+        }
+        let sortOption = { name: 1 };
+        if (query.sortByName && query.sortByName === "decending") {
+            sortOption.name = -1;
+        }
+        if (query.search) {
+            filterQuery.name = { $regex: new RegExp(query.search, "i") };
         }
         try {
             const { id } = req.params;
@@ -129,11 +140,15 @@ const ProductController = {
                     }
                 )
             } else {
-                const products = await ProductModel.find({ $and: [filterQuery, { deletedAt: null }] }).populate(["category", "color"])
+                const totalProducts = await ProductModel.countDocuments(filterQuery);
+                const products = await ProductModel.find({ $and: [filterQuery, { deletedAt: null }] }).populate(["category", "color"]).sort(sortOption).skip(skip).limit(Limit);
                 res.send(
                     {
                         flag: 1,
-                        products
+                        products,
+                        Limit: Limit || totalProducts,
+                        skip,
+                        totalProducts
                     }
                 )
             }
